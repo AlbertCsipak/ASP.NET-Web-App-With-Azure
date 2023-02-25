@@ -1,0 +1,98 @@
+﻿@using Z6O9JF_SOF_2022231.ASP.Models
+@model IEnumerable<Car>
+
+@{
+    ViewData["Title"] = "View";
+    Car car = new Car();
+}
+
+<h1 style="margin-top:15vh">Garázsom</h1>
+
+<table style="margin-bottom:35vh">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FuelType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YoM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Owner)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CN)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Brand)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FuelType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.YoM)
+                    </td>
+                    <td>
+                        <a asp-action="Update" asp-route-id="@item.CN">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@item.CN">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        <form action="Car/Creator" method="post" enctype="multipart/form-data">
+        <tr>
+            <td>
+                @Html.EditorFor(modelItem => car.CN)
+            </td>
+            <td>
+                    @Html.DropDownListFor(modelItem => car.Brand,Html.GetEnumSelectList(typeof(Brand)))
+                   
+            </td>
+            <td>
+                @Html.EditorFor(modelItem => car.Type)
+            </td>
+            <td>
+                @Html.EditorFor(modelItem => car.LE)
+            </td>
+            <td>
+                    @Html.DropDownListFor(modelItem => car.FuelType,Html.GetEnumSelectList(typeof(FT)))
+            </td>
+            <td>
+                @Html.EditorFor(modelItem => car.YoM)
+            </td>
+            <td>
+                <input type="submit" value="Hozzáad"/>
+            </td>
+        </tr>
+        </form>
+    </tbody>
+</table>
+
+

@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Z6O9JF_SOF_2022231.AzureFunctions": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7212",
+      "launchBrowser": false
+    }
+  }
+}

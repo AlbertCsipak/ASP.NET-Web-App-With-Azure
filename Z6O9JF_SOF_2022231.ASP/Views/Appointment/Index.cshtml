@@ -1,0 +1,93 @@
+﻿@using Z6O9JF_SOF_2022231.ASP.Models
+@using Z6O9JF_SOF_2022231.ASP.Logic
+
+@model AppointmentCreateViewModel
+
+@{
+    ViewData["Title"] = "View";
+    Appointment appointment = new Appointment();
+    DateTime dt = DateTime.Now;
+}
+
+<h1 style="margin-top:15vh">Időpont Foglaló</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.LabelFor(t => appointment.CarID)
+            </th>
+            <th>
+                @Html.LabelFor(t => appointment.Date)
+            </th>
+            <th>
+                @Html.LabelFor(t => appointment.ServiceType)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.MyAppointments)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CarID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServiceType)
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<form action="Appointment/Creator" method="post" enctype="multipart/form-data" style="">
+
+    @Html.LabelFor(t => appointment.CarID)
+    @Html.DropDownListFor(t => appointment.CarID, new SelectList(Model.MyCars), "Autó kiválasztása")
+
+    @Html.LabelFor(t => appointment.ServiceType)
+    @Html.DropDownListFor(y => appointment.ServiceType, Html.GetEnumSelectList(typeof(ServiceType)))
+
+    @for (int i = 0; i < 7; i++)
+    {
+        dt = dt.AddDays(1);
+        TimeSpan ts = new TimeSpan(8, 0, 0);
+        dt = dt.Date + ts;
+
+        <ul class="date-picker">
+            <li>
+                <label>@dt.ToShortDateString()</label>
+            </li>
+            @for (int j = 8; j < 18; j++)
+            {
+                if (Model.Appointments.Where(t=>t.Date == dt).Count() <= 0) //ezt kell állítani annak függvényében hogy hány autó fér be egyszerre
+                {
+                    <li>
+                        <input type="radio" value="@dt" name="appointment.Date" id="appointment_Date" />
+                        <label>@dt.ToShortTimeString()</label>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <label class="time-taken">@dt.ToShortTimeString()</label>
+                    </li>
+                }
+
+                dt = dt.AddHours(1);
+            }
+
+        </ul>
+        <br />
+    }
+
+    <input type="submit" value="Foglalás" /> 
+
+</form>

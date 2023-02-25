@@ -1,0 +1,106 @@
+﻿<header id="header" style="padding-top:27vh; padding-bottom:27vh">
+
+	<span class="slide-button" onclick="slideShow(1)">&#10094;</span>
+	<div class="slideShow" id="hero"></div>
+	<div class="header-text">
+		<h1>Fiat Vida</h1>
+		<h2>
+			Diagnosztika
+			<span class="orange-divider"> / </span>
+			Karosszéria Javítás
+			<span class="orange-divider"> / </span>
+			Autószerelés
+		</h2>
+	</div>
+	<span class="slide-button" onclick="slideShow(-1)">&#10095;</span>
+
+</header>
+
+<div class="info-bar">
+
+	<div class="info-box">
+		<i class="fa-solid fa-clock-rotate-left"></i>
+		<div class="info-text">
+			<span class="info-text">Hétfő-Péntek</span>
+			<span class="info-text">8:00-17:00</span>
+		</div>
+	</div>
+
+	<div class="info-box">
+		<a class="callbutton-box" href="tel:06205098365" alt="Phone number">Hívjon most</a>
+	</div>
+
+	<div class="info-box">
+		<div class="info-text">
+			<span class="info-text">Magyarország</span>
+			<span class="info-text">Pest Megye</span>
+		</div>
+		<i class="fa-solid fa-map-location-dot"></i>
+	</div>
+
+</div>
+
+<main id="main">
+
+	<div class="main-content">
+
+		<div class="about-us ">
+			<div class="main-page-content fade-in">
+
+				<i class="fa-solid fa-user-group main-img"></i>
+				<p class="main-content-label">
+					Barátságos és precíz munkavégzés szakképzett csapattal.
+				</p>
+			</div>
+
+
+			<div class="main-page-content fade-in">
+				<i class="fa-solid fa-clock main-img"></i>
+				<p class="main-content-label">
+					Rövid várakozási idő.
+				</p>
+
+			</div>
+			<div class="main-page-content fade-in">
+				<i class="fa-solid fa-coins main-img "></i>
+				<p class="main-content-label">
+					Speciális szolgáltatások megfizethető áron.
+				</p>
+
+			</div>
+			<div class="main-page-content fade-in">
+				<i class="fa-solid fa-phone main-img"></i>
+				<p class="main-content-label">
+					Non-Stop, 0-24 órás rendelkezésre állás.
+				</p>
+
+			</div>
+		</div>
+
+
+		<div class="review-section">
+			<h2>Ezeket Irták Rólunk</h2>
+			<div class="review-box">
+				<p class="apostrophe">&#8220;</p>
+				<p id="reviews"></p>
+				<p class="apostrophe">&#8222;</p>
+			</div>
+
+			<div class="button-box">
+				<span class="review-buttons" onclick="showReviews(1)">
+					<div class="review-button" id="rb1"></div>
+				</span>
+				<span class="review-buttons" onclick="showReviews(2)">
+					<div class="review-button" id="rb2"></div>
+				</span>
+				<span class="review-buttons" onclick="showReviews(3)">
+					<div class="review-button" id="rb3"></div>
+				</span>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</main>

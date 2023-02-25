@@ -1,0 +1,163 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<SiteUser> SignInManager
+@inject UserManager<SiteUser> UserManager
+
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+	<!--Meta-->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Fiat Vida Kft.">
+	<meta name="copyright" content="Fiat Vida Kft.">
+	<meta name="country" content="Hungary">
+	<meta name="robots" content="index, follow">
+	<meta name="keywords" content="autószerelés,szervíz,autómentés">
+
+	<!--Title-->
+	<title>Fiat Vida Kft.</title>
+
+	<!--Icon-->
+	<link rel="icon" href="/webpimages/Logo.png" type="image/icon type">
+
+	<!--Google Font-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+	<!--css-->
+	<link rel="stylesheet" href="/css/index.css">
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/Z6O9JF_SOF_2022231.ASP.styles.css" asp-append-version="true" />
+	<link rel="stylesheet" href="/css/style.css">
+
+
+</head>
+
+<body>
+
+	<nav id="nav">
+
+		<div class="logo-box">
+			<img class="logo" src="/webpimages/Logo.png" alt="Fiat Vida Kft. Logo">
+		</div>
+
+		<div class="menu-box">
+			<a asp-area="" asp-controller="Home" asp-action="Index">Főoldal</a>
+			<a asp-area="" asp-controller="Appointment" asp-action="Index">Foglalás</a>
+			<a asp-area="" asp-controller="Car" asp-action="Index">Garázsom</a>
+
+			@if (SignInManager.IsSignedIn(User))
+			{
+				<a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Profilom</a>
+				<a>
+					<form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+						<button style="background:none ; border:none" type="submit">Kijelentkezés</button>
+					</form>
+				</a>
+			}
+			else
+			{
+				<a asp-area="Identity" asp-page="/Account/Register">Regisztrálás</a>
+				<a asp-area="Identity" asp-page="/Account/Login">Bejelentkezés</a>
+			}
+
+
+			<div class="indicator" id="active-page"></div>
+		</div>
+
+		<div class="social-box">
+			<a href="https://www.facebook.com/fiatvida.hu" target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
+		</div>
+
+		<!--Mobile-Nav-->
+		<div class="mobile-nav">
+
+			<img class="logo" src="/webpimages/Logo.png" alt="Fiat Vida Kft. Logo">
+
+			<div class="nav_endflex" onclick="menuToggle()">
+				<i class="fa-solid fa-gear menu-icon" id="menuIcon"></i>
+			</div>
+
+			<div class="menu-toggle" id="dropdown">
+				<a asp-area="" asp-controller="Home" asp-action="Index">Főoldal</a>
+				<a asp-area="" asp-controller="Appointment" asp-action="Index">Foglalás</a>
+				<a asp-area="" asp-controller="Car" asp-action="Index">Garázsom</a>
+
+				@if (SignInManager.IsSignedIn(User))
+				{
+					<a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Profilom</a>
+					<a>
+						<form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+							<button style="background:none ; border:none" type="submit">Kijelentkezés</button>
+						</form>
+					</a>
+				}
+				else
+				{
+					<a asp-area="Identity" asp-page="/Account/Register">Regisztrálás</a>
+					<a asp-area="Identity" asp-page="/Account/Login">Bejelentkezés</a>
+				}
+			</div>
+
+		</div>
+
+	</nav>
+
+	<main>
+		@RenderBody()
+	</main>
+
+	<footer id="footer">
+
+		<div class="footer-sbs">
+
+			<div class="footer-info">
+				<h3>Címünk</h3>
+				<p><i class="fa-solid fa-warehouse"></i> Dunavarsány, Szabadság u. 51, 2336 Hungary</p>
+				<p><i class="fa-solid fa-clock"></i> Hétfő-Péntek 8:00-17:00</p>
+				<p><i class="fa-solid fa-calendar-xmark"></i> Szombat,Vasárnap: Zárva</p>
+			</div>
+
+			<div class="google-maps">
+				<div class="gmap_canvas">
+					<iframe width="100" height="100" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="gmaps"
+							src="https://maps.google.com/maps?q=Fiat%20vida&t=&z=13&ie=UTF8&iwloc=&output=embed">
+					</iframe>
+				</div>
+			</div>
+
+			<div class="footer-info">
+				<h3>Elérhetőségeink</h3>
+				<p><i class="fa-solid fa-phone"></i> +36201234567</p>
+				<p><i class="fa-solid fa-envelope"></i> info@fiatvida.hu</p>
+				<a href="https://www.facebook.com/fiatvida.hu" target="_blank">
+					<i class="fa-brands fa-facebook-f"></i>
+					Facebook
+				</a>
+
+			</div>
+
+		</div>
+
+		<div class="copyright-box">
+			<p class="copyright">
+				Copyright &copy;
+				<script>document.write(new Date().getFullYear())</script> Fiat Vida Kft.
+			</p>
+			<a class="madeby" href="##">ABweb</a>
+		</div>
+
+	</footer>
+
+</body>
+
+<!--JS-->
+<script src="/js/scripts.js"></script>
+<script src="https://kit.fontawesome.com/2113a48e0d.js" crossorigin="anonymous"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</html>

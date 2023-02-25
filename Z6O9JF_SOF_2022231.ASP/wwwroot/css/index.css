@@ -1,0 +1,376 @@
+/*Header*/
+
+header{
+    height: 90vh;
+    background-color: rgb(20, 20, 20);
+}
+
+.slide-button{
+    cursor: pointer;
+    width: 10vw;
+    color: #014F9C;
+    font-size: 50px;
+    animation: none;
+    z-index: 1;
+	
+}
+
+.slide-button:hover {
+    color: #ffffff;
+}
+
+.header-text{
+    flex-direction: column;
+    color: #ffffff;
+    text-transform: uppercase;
+    height: 50%;
+    animation: none;
+    z-index: 1;
+}
+
+.header-text h1,.header-text h2{
+    padding: 3%;
+    height: 0%;
+    color: #ffffff;
+    font-size: 70px;
+    letter-spacing: 10px;
+}
+
+.header-text h2{
+    letter-spacing: 5px;
+    font-size: 35px;
+}
+
+.orange-symbol{
+    color: #014F9C;
+    font-size: 70px;
+}
+
+.orange-divider{
+    color: #014F9C;
+    font-size: 35px;
+}
+
+.info-bar{
+    height: 10vh;
+    background-color: rgb(20, 20, 20);
+    z-index: 1;
+    box-shadow: 0px -5px 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.info-box{
+    background-color: rgb(20, 20, 20);
+
+}
+
+.info-box i{
+    color: #fff;
+    font-size: 30px;
+    padding: 5%;
+}
+
+.info-text p, .info-text{
+    width: 35%;
+    flex-direction: column;
+    color: #014F9C;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.callbutton-box{
+    font-size: 40px;
+    clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%);
+    width: 100%;
+    color: rgb(20, 20, 20);
+    background-color: #014F9C;
+    text-transform: uppercase;
+}
+
+.callbutton-box:hover{
+    color: #014F9C;
+    background-color: #ffffff;
+}
+
+#hero{
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    background-color: rgb(20, 20, 20);
+}
+
+.hero1{
+    background-image: linear-gradient(to bottom ,rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.8)), url(/webpimages/hero1.jpg);
+}
+.hero2{
+    background-image: linear-gradient(to bottom ,rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.8)), url(/webpimages/hero2.jpg);
+}
+.hero3{
+    background-image: linear-gradient(to bottom ,rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.8)), url(/webpimages/hero3.jpg);
+}
+
+.bgfadein{
+  animation-name: bgFadeIn;
+  animation-duration: 0.3s;
+}
+.bgfadeout{
+  animation-name: bgFadeOut;
+  animation-duration: 0.3s;
+}
+
+@keyframes bgFadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes bgFadeOut{
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1200px)
+{
+    .header-text h1{
+        font-size: 60px;
+        letter-spacing: 5px;
+    }
+    .header-text h2{
+        font-size: 30px;
+        letter-spacing: 2.5px;
+    }
+    .orange-divider{
+        font-size: 30px;
+    }
+}
+
+@media(max-width: 1024px)
+{
+    .header-text h1{
+        font-size: 40px;
+        letter-spacing: 5px;
+    }
+    .header-text h2{
+        font-size: 20px;
+        letter-spacing: 2.5px;
+    }
+    .orange-divider{
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px)
+{
+    .header-text h1{
+        font-size: 30px;
+        letter-spacing: 0px;
+    }
+    .header-text h2{
+        font-size: 15px;
+        letter-spacing: 0px;
+    }
+    .orange-divider{
+        font-size: 15px;
+    }
+    .info-bar{
+        flex-direction: column;
+        height: 30vh;
+    }
+    .info-bar :nth-child(1) { order: 3; }
+    .info-bar :nth-child(2) { order: 1; }
+    .info-bar :nth-child(3) { order: 2; }
+    .callbutton-box{
+        clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+    }
+}
+
+@media(max-width:480px){
+    .header-text h1{
+        font-size: 20px;
+    }
+    .header-text h2{
+        font-size: 10px;
+    }
+    .orange-divider{
+        font-size: 10px;
+    }
+}
+
+
+@media (max-width: 320px)
+{
+    .header-text h1{
+        font-size: 15px;
+    }
+    .header-text h2{
+        font-size: 7.5px;
+    }
+    .orange-divider{
+        font-size: 7.5px;
+    }
+}
+
+/*Main*/
+
+main{
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #ffffff;
+}
+
+.main-content{
+    flex-direction: column;
+    justify-content: flex-start;
+  
+}
+
+
+.about-us{
+    white-space: normal;
+    font-size: 20px;
+    flex-direction: row;
+    widows: 30%;
+    justify-content: flex-start;
+    padding: 10%;
+    flex-wrap:wrap;
+    background-color: #e5e5e5;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    
+}
+
+.about-us p {
+    white-space: normal;
+}
+
+.main-divider{
+  height: 20vh;
+
+}
+
+.review-section{
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #fff;
+}
+
+#reviews{
+    white-space: normal;
+}
+
+.apostrophe{
+    font-size: 30px;
+    color: #014F9C;
+}
+
+.review-box{
+    justify-content: center;
+}
+
+.button-box{
+    width: 40%;
+    justify-content: space-evenly;
+}
+
+.review-buttons{
+    padding: 5%;
+    cursor: pointer;
+}
+.review-button{
+    width: 4vw;
+    height: 1vh;
+    border: 3px solid #014F9C;
+    clip-path: polygon(0% 0, 100% 0, 70% 100%,30% 100%);
+}
+
+.main-page-content{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    padding: 4%;
+    flex-direction:column;
+    width: 50%;
+    height:auto;
+    padding:30px;
+
+}
+.main-page-content:nth-child(2){
+  border-right:0;
+}
+.main-page-content:nth-child(3){
+  border-bottom:0;
+}
+.main-page-content:nth-child(4){
+  border-bottom:0;
+  border-right:0;
+}
+.fade-in{
+    opacity: 0;
+    transform: translateY(10%);
+    transition: all 800ms ease-out;
+    
+}
+.fade-in.appear{
+    opacity:1;
+    transform: translateY(0);
+}
+
+.main-img {
+    font-size:100px;
+    color:rgb(0, 0, 0);
+    text-align: center;
+
+}
+
+
+
+.labels{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.reverse{
+    flex-direction: row-reverse;
+}
+
+.main-content-label{
+    line-height: 2.0em;
+    text-align:center;
+}
+
+
+
+.prices{
+    clip-path: polygon(0 8%,100% 0,100% 100%, 0 100%);
+    background-color: #e5e5e5;
+    height: 200vh;
+}
+
+
+@media (max-width:768px) {
+    .about-us{
+      flex-direction:column;
+      flex-wrap:none;
+      clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+    }
+  .main-page-content{
+    border:0;
+    border-bottom: 2px solid white;
+    width:85%;
+  }
+  .main-page-content:nth-child(3){
+  border-bottom:2px solid white;
+}
+  .main-page-content:last-child{
+    border:0;
+  }
+  .prices{
+    clip-path: polygon(0 8%,100% 0,100% 100%, 0 100%);
+  }
+}
