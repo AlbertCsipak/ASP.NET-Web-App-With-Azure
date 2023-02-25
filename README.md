@@ -1,4 +1,4 @@
-School Project 2023 
+Coop School Project 2023 
 Public version without sensitive information.
 https://github.com/baloghbence123
 
