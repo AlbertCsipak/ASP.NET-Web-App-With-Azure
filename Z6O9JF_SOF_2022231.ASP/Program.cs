@@ -54,8 +54,8 @@ namespace Z6O9JF_SOF_2022231.ASP
             //FBLogin
             builder.Services.AddAuthentication().AddFacebook(opt =>
             {
-                opt.AppId = "705580851104998";
-                opt.AppSecret = "c19676dc78b5058e88fe89288b2537a2";
+                opt.AppId = "";
+                opt.AppSecret = "";
             });
 
             //app Settings
